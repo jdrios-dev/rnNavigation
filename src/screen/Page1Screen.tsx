@@ -5,8 +5,6 @@ const Page1Screen = () => {
   return (
     <View>
       <Text>Page1Screen</Text>
-      <Text>Page1Screen</Text>
-      <Text>Page2Screen</Text>
     </View>
   );
 };

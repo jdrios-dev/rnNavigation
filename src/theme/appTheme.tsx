@@ -1,5 +1,9 @@
 import {StyleSheet} from 'react-native';
 
+export const colors = {
+  primary: 'red',
+};
+
 export const styles = StyleSheet.create({
   avatar: {
     width: 90,

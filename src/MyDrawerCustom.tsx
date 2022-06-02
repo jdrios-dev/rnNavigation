@@ -11,8 +11,8 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
+import MyTabs from './MyTabs';
 import Page1Screen from './screen/Page1Screen';
-import Page2Screen from './screen/Page2Screen';
 import {styles} from './theme/appTheme';
 
 const Drawer = createDrawerNavigator();
@@ -26,8 +26,8 @@ export function MyDrawerCustom() {
         drawerType: width > 768 ? 'permanent' : 'front',
       }}
       drawerContent={props => <MenuInterno {...props} />}>
+      <Drawer.Screen name="My Tabs" component={MyTabs} />
       <Drawer.Screen name="Page1" component={Page1Screen} />
-      <Drawer.Screen name="Page2" component={Page2Screen} />
     </Drawer.Navigator>
   );
 }
@@ -46,14 +46,14 @@ const MenuInterno = ({navigation}: DrawerContentComponentProps) => {
 
       <View>
         <TouchableOpacity
+          onPress={() => navigation.navigate('My Tabs')}
+          style={styles.button}>
+          <Text style={styles.textWhite}>My Tabs</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
           onPress={() => navigation.navigate('Page1')}
           style={styles.button}>
           <Text style={styles.textWhite}>Link 1</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Page2')}
-          style={styles.button}>
-          <Text style={styles.textWhite}>Link 2</Text>
         </TouchableOpacity>
       </View>
     </DrawerContentScrollView>
